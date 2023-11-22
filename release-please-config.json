@@ -2,7 +2,6 @@
 	"plugins": [],
 	"release-type": "node",
     "prerelease-type": "alpha",
-    "release-as": "0.1.0",
     "prerelease": true,
 	"packages": {
 		".": {
