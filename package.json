@@ -1,0 +1,44 @@
+{
+  "name": "op-fvtt-api",
+  "version": "0.1.0",
+  "description": "api to ordem paranormal for FoundryVTT",
+  "main": "./webapi/src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SouOWendel/op-fvtt-api.git"
+  },
+  "keywords": [
+    "api",
+    "fvtt",
+    "nodejs"
+  ],
+  "author": "SouOWendel (Wendel Henrique)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/SouOWendel/op-fvtt-api/issues"
+  },
+  "homepage": "https://github.com/SouOWendel/op-fvtt-api#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.54.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin": "^1.0.1",
+    "husky": "^8.0.3",
+    "nodemon": "^3.0.1",
+    "prettier": "3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
