@@ -5,7 +5,9 @@
   "main": "./webapi/src/index.js",
   "type": "module",
   "scripts": {
-    "test": "node index.js",
+    "start": "node src/index.js",
+	"dev": "npx nodemon src/index.js",
+	"test": "bash script.sh",
     "commit": "git-cz"
   },
   "repository": {
@@ -32,6 +34,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin": "^1.0.1",
+    "eslint-plugin-jsdoc": "^46.9.0",
     "husky": "^8.0.3",
     "nodemon": "^3.0.1",
     "prettier": "3.1.0"
