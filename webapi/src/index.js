@@ -1,7 +1,7 @@
 import Note from './entities/notes.js';
 
 import * as http from 'http';
-const PORT = 3000;
+const PORT = 30000;
 const DEFAULT_HEADER = {'Content-Type': 'application/json'};
 
 import {generateInstance} from './factories/updateNotesFactory.js';
