@@ -1,13 +1,13 @@
 {
   "name": "op-fvtt-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "api to ordem paranormal for FoundryVTT",
   "main": "./webapi/src/index.js",
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-	"dev": "npx nodemon src/index.js",
-	"test": "bash script.sh",
+    "dev": "npx nodemon src/index.js",
+    "test": "bash script.sh",
     "commit": "git-cz"
   },
   "repository": {
