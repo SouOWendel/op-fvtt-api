@@ -1,6 +1,6 @@
 {
   "name": "op-fvtt-api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "api to ordem paranormal for FoundryVTT",
   "main": "./webapi/src/index.js",
   "type": "module",
