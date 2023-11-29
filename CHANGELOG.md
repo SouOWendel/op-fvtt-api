@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.3.0...v0.4.0) (2023-11-29)
+
+
+### Features
+
+* **release-please:** the next release is not pre-release, changed the configuration of action ([4d7fccc](https://github.com/SouOWendel/op-fvtt-api/commit/4d7fccc1929f2af8291e7c9ce6e29498527ccb1e))
+
 ## [0.3.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.2.0...v0.3.0) (2023-11-29)
 
 
