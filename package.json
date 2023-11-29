@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-	"dev": "npx nodemon src/index.js",
-	"test": "bash script.sh",
+    "dev-webapi": "npx nodemon webapi/src/index.js",
+    "dev-express": "npx nodemon expressAPI/src/index.js",
+    "test": "bash webapi/script.sh",
     "commit": "git-cz"
   },
   "repository": {
@@ -19,7 +20,7 @@
     "fvtt",
     "nodejs"
   ],
-  "author": "SouOWendel (Wendel Henrique)",
+  "author": "Wendel Henrique (SouOWendel)",
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/SouOWendel/op-fvtt-api/issues"
@@ -43,5 +44,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.2"
   }
 }
