@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.2.0...v0.3.0) (2023-11-29)
+
+
+### Features
+
+* **express:** initial version of API with Express Framework, this include an CRUD code ([f588c50](https://github.com/SouOWendel/op-fvtt-api/commit/f588c505c1c5c21b77df07d78376a37bb8f58489))
+* **npm package:** added and changed some scripts, changes on author name, modules have been added ([7355197](https://github.com/SouOWendel/op-fvtt-api/commit/73551973a4eb598371292f58f001aa5d863e41e6))
+
 ## [0.2.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.1.0...v0.2.0) (2023-11-28)
 
 
