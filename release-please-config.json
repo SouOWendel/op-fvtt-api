@@ -1,8 +1,6 @@
 {
 	"plugins": [],
 	"release-type": "node",
-    "prerelease-type": "alpha",
-    "prerelease": true,
 	"packages": {
 		".": {
 			"release-type": "node",
