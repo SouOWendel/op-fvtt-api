@@ -1,10 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
+import auth from './routes/auth.js';
+
+dotenv.config();
 const app = express();
 app.use(express.json(), cors());
-const port = 3000;
 
 const Updates = mongoose.model('Notes', {
 	id: Number,
@@ -18,12 +21,14 @@ const Updates = mongoose.model('Notes', {
 	content: String,
 });
 
-app.get('/', async (request, response) => {
+app.use('/auth', auth);
+
+app.get('/notes', async (request, response) => {
 	const notes = await Updates.find();
 	return response.send(notes);
 });
 
-app.post('/', async (request, response) => {
+app.post('/notes', async (request, response) => {
 	const notes = new Updates({
 		id: request.body.id,
 		minCoreVersion: request.body.minCoreVersion,
@@ -39,7 +44,7 @@ app.post('/', async (request, response) => {
 	return await notes.save();
 });
 
-app.put('/:id', async (request, response) => {
+app.put('/notes/:id', async (request, response) => {
 	const note = await Updates.findByIdAndUpdate(request.params.id, {
 		id: request.body.id,
 		minCoreVersion: request.body.minCoreVersion,
@@ -54,12 +59,12 @@ app.put('/:id', async (request, response) => {
 	return response.send(note);
 });
 
-app.delete('/:id', async (request, response) => {
+app.delete('/notes/:id', async (request, response) => {
 	const note = await Updates.findByIdAndDelete(request.params.id);
 	return response.send(note);
 });
 
-app.listen(port, () => {
-	mongoose.connect('mongodb+srv://souowendel:7I1zTaiiIRoKEZZ2@op-fvtt-api.ttflxny.mongodb.net/?retryWrites=true&w=majority');
-	console.log('Example app listening on port', port);
+app.listen(process.env.PORT, () => {
+	mongoose.connect(process.env.mongoose);
+	console.log('Example app listening on port', process.env.PORT);
 });
