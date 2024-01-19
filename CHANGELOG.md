@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.3.0...v1.0.0) (2024-01-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **authentication:** These changes make the API functional with authentication, being a big change for the functioning of the information, compared to the previos version
+
+### Features
+
+* **authentication:** integrated system with JWT, in addition, token auth and verify have been added ([5d6fd9b](https://github.com/SouOWendel/op-fvtt-api/commit/5d6fd9be9317b67c751f1ed65ba7ac0d92b1c3d6))
+* **controller auth:** added to control the authentication requests that will be detected ([9a3e7c8](https://github.com/SouOWendel/op-fvtt-api/commit/9a3e7c80b260d3cea6fc2ab7ae97384653f5ed17))
+* **http request errors:** some functions are created to handle bad request and unauthorized errors ([c7821b3](https://github.com/SouOWendel/op-fvtt-api/commit/c7821b3fb138f8840cbeb8c6cf063fec0e2abdee))
+* **index:** added notes on url, use the auth and .env was adopted within the project ([69d7476](https://github.com/SouOWendel/op-fvtt-api/commit/69d74768155e86c1743ea7c74128863b53a768ad))
+* **model user:** created the model for process the data and prepare ([bd9411d](https://github.com/SouOWendel/op-fvtt-api/commit/bd9411d3a0fd4267da2657ed2566ad1a46f17938))
+* **product controller and route:** added the interaction with the products of the API and the route ([1ed5017](https://github.com/SouOWendel/op-fvtt-api/commit/1ed5017991e9d943bdc2f8533da5cd7af69fe318))
+* **release-please:** the next release is not pre-release, changed the configuration of action ([4d7fccc](https://github.com/SouOWendel/op-fvtt-api/commit/4d7fccc1929f2af8291e7c9ce6e29498527ccb1e))
+* **routes auth:** created for handle the routes of api ([9d45c3b](https://github.com/SouOWendel/op-fvtt-api/commit/9d45c3b0b2a5f3562ced085fe478d78c16f74778))
+* **user service:** service for authentication with error handle ([4711703](https://github.com/SouOWendel/op-fvtt-api/commit/4711703669b03c639916d42798bc304e0e9b0db8))
+
 ## [0.3.0](https://github.com/SouOWendel/op-fvtt-api/compare/v0.2.0...v0.3.0) (2023-11-29)
 
 
