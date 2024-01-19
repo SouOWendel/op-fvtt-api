@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import auth from './routes/auth.js';
+import product from './routes/product.js';
 
 dotenv.config();
 const app = express();
@@ -21,7 +22,9 @@ const Updates = mongoose.model('Notes', {
 	content: String,
 });
 
+// Routes
 app.use('/auth', auth);
+app.use('/product', product);
 
 app.get('/notes', async (request, response) => {
 	const notes = await Updates.find();
@@ -65,6 +68,6 @@ app.delete('/notes/:id', async (request, response) => {
 });
 
 app.listen(process.env.PORT, () => {
-	mongoose.connect(process.env.mongoose);
+	mongoose.connect(process.env.MONGOOSE);
 	console.log('Example app listening on port', process.env.PORT);
 });
