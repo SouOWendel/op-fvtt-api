@@ -1,6 +1,6 @@
 {
   "name": "op-fvtt-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "api to ordem paranormal for FoundryVTT",
   "main": "./webapi/src/index.js",
   "type": "module",
@@ -8,7 +8,7 @@
     "start": "node src/index.js",
     "dev-webapi": "nodemon webapi/src/index.js",
     "dev-express": "nodemon expressAPI/src/server.js",
-	"predev": "npm run knex:migrate",
+    "predev": "npm run knex:migrate",
     "test": "bash webapi/script.sh",
     "commit": "git-cz"
   },
