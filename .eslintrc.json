@@ -12,7 +12,7 @@
     "rules": {
         "no-tabs": ["off", { "allowIndentationTabs": true }],
         "indent": ["error", "tab"],
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": ["off", "windows"],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "max-len": ["error", { "code": 200 }],
