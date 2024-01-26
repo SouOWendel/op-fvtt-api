@@ -3,10 +3,10 @@
 import userModel from '../models/user.js';
 import {authenticate as authService} from '../services/auth.js';
 
-const authenticate = (request, response) => {
+const authenticate = async (request, response) => {
 	try {
 		const user = userModel(request.params);
-		const token = authService(user);
+		const token = await authService(user);
 		return response.status(200).json({token: token});
 	} catch (error) {
 		// Retorna o erro ou o código 500 (Internal Server Error).

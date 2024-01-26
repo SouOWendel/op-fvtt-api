@@ -1,11 +1,15 @@
 import {Unauthorized} from './exceptions/HttpRequestError.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import {getUsers} from '../database/entities/user.js';
 
 dotenv.config();
 
-const authenticate = (user) => {
-	if (user.username != 'wendel' || user.password != '123') {
+const authenticate = async (user) => {
+	// A primeira posição do array é pega, se não existir, não há usuário.
+	const [users] = await getUsers(user.username, user.password);
+
+	if (!users) {
 		throw new Unauthorized('Usuário não autenticado.');
 	}
 	return generateToken(user.username);
