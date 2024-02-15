@@ -20,7 +20,7 @@ const generateToken = (username) => {
 	return jwt.sign(
 		{username},
 		process.env.SECRET,
-		{expiresIn: 120},
+		{expiresIn: 600},
 	);
 };
 
