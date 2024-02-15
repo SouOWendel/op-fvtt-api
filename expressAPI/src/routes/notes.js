@@ -1,15 +1,21 @@
 // import mongoose from 'mongoose';
 import express from 'express';
-import {authenticated} from '../services/auth.js';
+import * as notesController from '../controllers/notes.js';
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.get('/', async (request, response) => {
-	const authd = authenticated(request.headers);
-	console.log(authd);
-	return response.send('alo');
-});
+router.get('/', notesController.findAll);
+router.get('/:id', notesController.consult);
+router.post('/', notesController.create);
+router.put('/', notesController.update);
+router.delete('/:id', notesController.remove);
+
+// router.get('/', async (request, response) => {
+// 	const authd = authenticated(request.headers);
+// 	console.log(authd);
+// 	return response.send('alo');
+// });
 
 // const Updates = mongoose.model('Notes', {
 // 	id: Number,
