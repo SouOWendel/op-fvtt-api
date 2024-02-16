@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.0.0...v3.1.0) (2024-02-15)
+
+
+### Features
+
+* changed the expire time of token from 120s to 600s ([ac5e5f6](https://github.com/SouOWendel/op-fvtt-api/commit/ac5e5f638fbc321ce48b177ba96384c7b6b324e0))
+* **notes api:** partial CRUD (findAll, consult, create) of notes was created with postgre and knex ([5820658](https://github.com/SouOWendel/op-fvtt-api/commit/5820658542066145438439e79ae09f59eb23bdc3))
+* **notes migration:** schema of notes was created with migrations of Knex ([2da01e4](https://github.com/SouOWendel/op-fvtt-api/commit/2da01e4eabf51597ae3e91b731aa0408fdc5406a))
+* **test archive:** test ([cff6a45](https://github.com/SouOWendel/op-fvtt-api/commit/cff6a459e1f17c0752179c5cc3bba640286625a0))
+* **user api:** partial CRUD (findAll, create) of user was created with postgre and knex ([21e6240](https://github.com/SouOWendel/op-fvtt-api/commit/21e624073ecaccd77b6f405ab934cf5d703bb9a0))
+
 ## [3.0.0](https://github.com/SouOWendel/op-fvtt-api/compare/v2.0.0...v3.0.0) (2024-01-26)
 
 
