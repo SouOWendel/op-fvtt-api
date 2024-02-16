@@ -1,58 +1,59 @@
 {
-  "name": "op-fvtt-api",
-  "version": "3.0.0",
-  "description": "api to ordem paranormal for FoundryVTT",
-  "main": "./webapi/src/index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev-webapi": "nodemon webapi/src/index.js",
-    "dev-express": "nodemon expressAPI/src/server.js",
-    "predev": "npm run knex:migrate",
-    "test": "bash webapi/script.sh",
-    "commit": "git-cz"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SouOWendel/op-fvtt-api.git"
-  },
-  "keywords": [
-    "api",
-    "fvtt",
-    "nodejs"
-  ],
-  "author": "Wendel Henrique (SouOWendel)",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/SouOWendel/op-fvtt-api/issues"
-  },
-  "homepage": "https://github.com/SouOWendel/op-fvtt-api#readme",
-  "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.54.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin": "^1.0.1",
-    "eslint-plugin-jsdoc": "^46.9.0",
-    "husky": "^8.0.3",
-    "nodemon": "^3.0.1",
-    "pg": "^8.11.3",
-    "prettier": "3.1.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "knex": "^3.1.0",
-    "mongoose": "^8.0.2"
-  }
+	"name": "op-fvtt-api",
+	"version": "3.0.0",
+	"description": "api to ordem paranormal for FoundryVTT",
+	"main": "./src/server.js",
+	"type": "module",
+	"scripts": {
+		"start": "node src/index.js",
+		"dev": "nodemon src/server.js",
+		"migrate": "npm run knex:migrate",
+		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+		"commit": "git-cz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SouOWendel/op-fvtt-api.git"
+	},
+	"keywords": [
+		"api",
+		"fvtt",
+		"nodejs"
+	],
+	"author": "Wendel Henrique (SouOWendel)",
+	"license": "MPL-2.0",
+	"bugs": {
+		"url": "https://github.com/SouOWendel/op-fvtt-api/issues"
+	},
+	"homepage": "https://github.com/SouOWendel/op-fvtt-api#readme",
+	"devDependencies": {
+		"@commitlint/cli": "^18.4.3",
+		"@commitlint/config-conventional": "^18.4.3",
+		"commitizen": "^4.3.0",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.54.0",
+		"eslint-config-google": "^0.14.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin": "^1.0.1",
+		"eslint-plugin-jsdoc": "^46.9.0",
+		"husky": "^8.0.3",
+		"jest": "^29.7.0",
+		"nodemon": "^3.0.1",
+		"pg": "^8.11.3",
+		"prettier": "3.1.0"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"dependencies": {
+		"axios": "^1.6.7",
+		"cors": "^2.8.5",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.2",
+		"knex": "^3.1.0",
+		"mongoose": "^8.0.2"
+	}
 }
