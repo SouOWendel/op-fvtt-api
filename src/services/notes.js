@@ -8,15 +8,27 @@ const findAll = async (notes) => {
 };
 
 const create = async (notes) => {
-	const [notesResult] = await notesEntity.create(notes);
+	const notesResult = await notesEntity.create(notes);
 	if (!notesResult) throw new Unauthorized('Usuário não autenticado!');
 	return notesResult;
 };
 
 const consult = async (notes) => {
-	const [notesResult] = await notesEntity.consult(notes);
+	const notesResult = await notesEntity.consult(notes);
 	if (!notesResult) throw new Unauthorized('Usuário não autenticado!');
 	return notesResult;
 };
 
-export { consult, findAll, create };
+const update = async (notes) => {
+	const notesResult = await notesEntity.update(notes);
+	if (!notesResult) throw new Unauthorized('Usuário não autenticado!');
+	return notesResult;
+};
+
+const remove = async (notes) => {
+	const notesResult = await notesEntity.remove(notes);
+	if (!notesResult) throw new Unauthorized('Usuário não autenticado!');
+	return notesResult;
+};
+
+export { consult, findAll, create, update, remove };

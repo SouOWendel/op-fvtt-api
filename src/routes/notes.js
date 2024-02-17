@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', notesController.findAll);
 router.get('/:id', notesController.consult);
 router.post('/', notesController.create);
-router.put('/', notesController.update);
+router.put('/:id', notesController.update);
 router.delete('/:id', notesController.remove);
 
 // router.get('/', async (request, response) => {

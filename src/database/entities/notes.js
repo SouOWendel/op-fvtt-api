@@ -12,8 +12,13 @@ const consult = async (notes) => {
 	return await connection('notes').select('*').where('id', notes.id);
 };
 
-const update = async () => {};
+const update = async (notes) => {
+	console.log('Supostamente atualizou', notes);
+	return await connection('notes').where('id', notes.id).update(notes);
+};
 
-const remove = async () => {};
+const remove = async (notes) => {
+	return await connection('notes').where('id', notes.id).del();
+};
 
 export { findAll, create, consult, update, remove };
