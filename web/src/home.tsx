@@ -28,17 +28,29 @@ export default function Home() {
 			.catch((err) => console.log(err));
 	}, []);
 
+	function deleteNote(id: number) {
+		axios
+			.delete(`http://localhost:3000/notes/${id}`)
+			.catch((err) => console.log(err));
+	}
+
 	return (
 		<div>
 			<h2 className="text-4xl font-bold leading-5 pb-8 pt-2">
 				Notas de Atualização
 			</h2>
-			<div>
+			<div className="flex">
 				<Link
 					to="/create"
 					className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
 				>
 					Criar nova nota
+				</Link>
+				<Link
+					to="/update"
+					className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
+				>
+					Atualizar uma nota
 				</Link>
 			</div>
 			<table className="table-fixed w-full text-sm border-collapse">
@@ -74,7 +86,10 @@ export default function Home() {
 									<button className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50">
 										Editar
 									</button>
-									<button className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50">
+									<button
+										className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
+										onClick={() => deleteNote(notes.id)}
+									>
 										Deletar
 									</button>
 								</td>

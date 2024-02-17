@@ -13,13 +13,14 @@ interface notes {
 	content?: string;
 }
 
-export default function Create() {
-	const [values, setValues] = useState<notes>({ id: 0 });
+export default function Update() {
+	const [values, setValues] = useState<notes>({ id: 0, title: '' });
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
+		console.log(values);
 		axios
-			.post('http://localhost:3000/notes', values)
+			.put(`http://localhost:3000/notes/${values.id}`, values)
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
 	};
@@ -27,7 +28,7 @@ export default function Create() {
 	return (
 		<div className="">
 			<div>
-				<h2 className="font-4xl">Adicionar nota</h2>
+				<h2 className="font-4xl">Atualizar uma nota</h2>
 				<form
 					className="grid grid-cols-2 gap-x-2 gap-y-2"
 					onSubmit={handleSubmit}

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './app.css';
 import Home from './home.tsx';
 import Create from './create.tsx';
+import Update from './update.tsx';
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/create" element={<Create />} />
+					<Route path="/update" element={<Update />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
