@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.2.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.1.0...v3.2.0) (2024-02-18)
+
+
+### Features
+
+* **crud:** update and delete acts have been added; the intermediate value error has been resolved ([2b919dc](https://github.com/SouOWendel/op-fvtt-api/commit/2b919dca3bed8882b14ce396478286ce8501d371))
+* **jest:** tests for validate required fields and password was added for jest unit tests ([9d48886](https://github.com/SouOWendel/op-fvtt-api/commit/9d48886b335771d5bf310b679b71270d0f8a46da))
+* **server listener:** console log with localhost + port has been added ([f377b2f](https://github.com/SouOWendel/op-fvtt-api/commit/f377b2fc35f0471aca5f41497b5d623361dfc161))
+* **web access:** the view has been created with React, Vite and Axios. Some components been created ([81edfc0](https://github.com/SouOWendel/op-fvtt-api/commit/81edfc0dae68b3d0210b8e4ea00fe3f699f11a52))
+* **web:** route for update page, delete button and update data notes with axios was been added ([8e031fb](https://github.com/SouOWendel/op-fvtt-api/commit/8e031fbdb4400c9ac06967e066139834051ab4d3))
+
+
+### Bug Fixes
+
+* **knex.js:** fixed the config knex file path ([59ec42d](https://github.com/SouOWendel/op-fvtt-api/commit/59ec42d10609ee6ce284bef5024c7f3bc60ff3e5))
+
 ## [3.1.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.0.0...v3.1.0) (2024-02-15)
 
 
