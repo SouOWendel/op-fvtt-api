@@ -80,9 +80,12 @@ export default function Home() {
 								<td className="p-1">{notes.title}</td>
 								<td className="p-1">{notes.content}</td>
 								<td>
-									<button className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50">
+									<Link
+										to={`/consult/${notes.id}`}
+										className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
+									>
 										Consultar
-									</button>
+									</Link>
 									<button className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50">
 										Editar
 									</button>

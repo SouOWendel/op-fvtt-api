@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './app.css';
-import Home from './home.tsx';
-import Create from './create.tsx';
-import Update from './update.tsx';
+import Home from './routes/home.tsx';
+import Create from './routes/create.tsx';
+import Update from './routes/update.tsx';
+import Consult from './routes/consult.tsx';
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/create" element={<Create />} />
 					<Route path="/update" element={<Update />} />
+					<Route path="/consult/:id" element={<Consult />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
