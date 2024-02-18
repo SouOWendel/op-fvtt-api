@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { FormEvent, useState } from 'react';
+import { EventHandler, FormEvent, useRef, useState } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import { Editor as TinyMCEEditor } from 'tinymce';
 
 interface notes {
 	id: number;
@@ -15,13 +17,22 @@ interface notes {
 
 export default function Create() {
 	const [values, setValues] = useState<notes>({ id: 0 });
+	const editorRef = useRef<TinyMCEEditor | null>(null);
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
+		setValues({ ...values, content: editorRef.current?.getContent() });
 		axios
 			.post('http://localhost:3000/notes', values)
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
+	};
+
+	const log = () => {
+		if (editorRef.current) {
+			console.log(typeof editorRef.current.getContent());
+			console.log(editorRef.current.getContent());
+		}
 	};
 
 	return (
@@ -116,16 +127,48 @@ export default function Create() {
 							onChange={(e) => setValues({ ...values, title: e.target.value })}
 						/>
 					</div>
-					<div className="flex flex-row gap-1 items-center">
-						<label htmlFor="">Conteúdo</label>
-						<textarea
-							placeholder="Insira o conteúdo em HTML."
-							className="p-1 rounded-sm flex-1"
-							onChange={(e) =>
-								setValues({ ...values, content: e.target.value })
-							}
-						/>
-					</div>
+					<Editor
+						apiKey="w762iybq75pjueklwxr113dgarjv4eg3fyer23ogg2nnjkmq"
+						onInit={(evt, editor) => (editorRef.current = editor)}
+						initialValue="<p>This is the initial content of the editor.</p>"
+						onChange={() =>
+							setValues({ ...values, content: editorRef.current?.getContent() })
+						}
+						init={{
+							height: 500,
+							menubar: false,
+							plugins: [
+								'advlist',
+								'autolink',
+								'lists',
+								'link',
+								'image',
+								'charmap',
+								'preview',
+								'anchor',
+								'searchreplace',
+								'visualblocks',
+								'code',
+								'fullscreen',
+								'insertdatetime',
+								'media',
+								'table',
+								'code',
+								'help',
+								'wordcount',
+							],
+							toolbar:
+								'undo redo | blocks | ' +
+								'bold italic forecolor | alignleft aligncenter ' +
+								'alignright alignjustify | bullist numlist outdent indent | ' +
+								'removeformat | help',
+							content_style:
+								'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+						}}
+					/>
+					{/* <button type="button" onClick={log}>
+						Log editor content
+					</button> */}
 					<button type="submit">Enviar</button>
 				</form>
 			</div>
