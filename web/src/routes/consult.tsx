@@ -31,6 +31,7 @@ export default function Consult() {
 		<div className="">
 			<h1>
 				Consulta <Link to="/">Voltar</Link>
+				<Link to={`/update/${notes.id}`}>Editar</Link>
 			</h1>
 			<p className="">{notes.id}</p>
 			<p className="">{notes.title}</p>
