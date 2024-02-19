@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface notes {
 	id: number;
@@ -28,7 +29,9 @@ export default function Update() {
 	return (
 		<div className="">
 			<div>
-				<h2 className="font-4xl">Atualizar uma nota</h2>
+				<h2 className="font-4xl">
+					Atualizar uma nota <Link to="/">Voltar</Link>
+				</h2>
 				<form
 					className="grid grid-cols-2 gap-x-2 gap-y-2"
 					onSubmit={handleSubmit}

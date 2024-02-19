@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 interface notes {
 	id?: number;
@@ -29,6 +29,9 @@ export default function Consult() {
 
 	return (
 		<div className="">
+			<h1>
+				Consulta <Link to="/">Voltar</Link>
+			</h1>
 			<p className="">{notes.id}</p>
 			<p className="">{notes.title}</p>
 			<p className="">{notes.content}</p>

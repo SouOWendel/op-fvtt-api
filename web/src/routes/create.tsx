@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { EventHandler, FormEvent, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
+import { Link } from 'react-router-dom';
 
 interface notes {
 	id: number;
@@ -28,17 +29,19 @@ export default function Create() {
 			.catch((err) => console.log(err));
 	};
 
-	const log = () => {
-		if (editorRef.current) {
-			console.log(typeof editorRef.current.getContent());
-			console.log(editorRef.current.getContent());
-		}
-	};
+	// const log = () => {
+	// if (editorRef.current) {
+	// console.log(typeof editorRef.current.getContent());
+	// console.log(editorRef.current.getContent());
+	// }
+	// };
 
 	return (
 		<div className="">
 			<div>
-				<h2 className="font-4xl">Adicionar nota</h2>
+				<h2 className="font-4xl">
+					Adicionar nota <Link to="/">Voltar</Link>
+				</h2>
 				<form
 					className="grid grid-cols-2 gap-x-2 gap-y-2"
 					onSubmit={handleSubmit}
