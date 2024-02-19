@@ -31,6 +31,7 @@ export default function Home() {
 	function deleteNote(id: number) {
 		axios
 			.delete(`http://localhost:3000/notes/${id}`)
+			.then(() => setData(data.filter((post) => post.id !== id)))
 			.catch((err) => console.log(err));
 	}
 
@@ -45,12 +46,6 @@ export default function Home() {
 					className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
 				>
 					Criar nova nota
-				</Link>
-				<Link
-					to="/update"
-					className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
-				>
-					Atualizar uma nota
 				</Link>
 			</div>
 			<table className="table-fixed w-full text-sm border-collapse">
@@ -68,7 +63,7 @@ export default function Home() {
 				<tbody>
 					{data.map((notes, index) => {
 						return (
-							<tr key={index}>
+							<tr key={notes.id}>
 								<td>{notes.id}</td>
 								<td className="p-1">
 									{notes.minCoreVersion}v - {notes.maxCoreVersion}v
@@ -86,9 +81,12 @@ export default function Home() {
 									>
 										Consultar
 									</Link>
-									<button className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50">
+									<Link
+										to={`/update/${notes.id}`}
+										className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
+									>
 										Editar
-									</button>
+									</Link>
 									<button
 										className="py-1 px-2 mx-1 rounded-md bg-slate-700 text-slate-50"
 										onClick={() => deleteNote(notes.id)}
