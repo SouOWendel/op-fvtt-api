@@ -4,6 +4,7 @@ import Home from './routes/home.tsx';
 import Create from './routes/create.tsx';
 import Update from './routes/update.tsx';
 import Consult from './routes/consult.tsx';
+import Login from './routes/login.tsx';
 
 function App() {
 	return (
@@ -11,8 +12,9 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
 					<Route path="/create" element={<Create />} />
-					<Route path="/update" element={<Update />} />
+					<Route path="/update/:id" element={<Update />} />
 					<Route path="/consult/:id" element={<Consult />} />
 				</Routes>
 			</BrowserRouter>
