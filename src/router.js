@@ -8,7 +8,7 @@ import notes from './routes/notes.js';
 const router = express.Router();
 
 // Routes
-router.use('/auth', auth);
+router.use('/login', auth);
 router.use('/user', user);
 router.use('/notes', notes);
 
