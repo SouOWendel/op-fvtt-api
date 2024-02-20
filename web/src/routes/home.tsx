@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface notes {
 	id: number;
@@ -18,6 +18,7 @@ export default function Home() {
 	// eslint-disable-next-line max-len
 	// https://bobbyhadz.com/blog/react-typescript-usestate-array-of-objects#type-usestate-as-array-of-objects-using-a-type-alias-or-an-interface
 	const [data, setData] = useState<notes[]>([]);
+	const navigate = useNavigate();
 	useEffect(() => {
 		axios
 			.get('http://localhost:3000/notes')
@@ -27,6 +28,20 @@ export default function Home() {
 			})
 			.catch((err) => console.log(err));
 	}, []);
+
+	useEffect(() => {
+		axios
+			.get('http://localhost:3000/login/check-auth', {
+				headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+			})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				navigate('/login');
+				console.log(err);
+			});
+	}, [navigate]);
 
 	function deleteNote(id: number) {
 		axios

@@ -20,6 +20,13 @@ export default function Create() {
 	const [values, setValues] = useState<notes>({ id: 0 });
 	const editorRef = useRef<TinyMCEEditor | null>(null);
 
+	axios
+		.get('http://localhost:3000/login/check-auth', {
+			headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+		})
+		.then((res) => console.log(res))
+		.catch((err) => console.log(err));
+
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 		setValues({ ...values, content: editorRef.current?.getContent() });
