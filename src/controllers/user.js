@@ -34,7 +34,6 @@ const create = async (request, response) => {
 	try {
 		isAuthenticated(request.headers);
 		const user = request.body;
-		console.log('req.body', user);
 		await userService.create(user);
 
 		return response.status(200).json({ message: 'Success (user)!' });
