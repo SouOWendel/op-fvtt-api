@@ -18,16 +18,12 @@ const authenticate = async (user) => {
 
 // As outras APIs podem autenticar utilizando o Token ao invés de buscar novamente no banco de dados.
 const generateToken = (username) => {
-	const accessToken = jwt.sign(
-		{ username },
-		process.env.chaveacessosecretauhuhuhu,
-		{ expiresIn: '1m' },
-	);
-	const refreshToken = jwt.sign(
-		{ username },
-		process.env.refreshchavesecretaawawawa,
-		{ expiresIn: '10m' },
-	);
+	const accessToken = jwt.sign({ username }, process.env.accessSECRET, {
+		expiresIn: '1m',
+	});
+	const refreshToken = jwt.sign({ username }, process.env.refreshSECRET, {
+		expiresIn: '5m',
+	});
 	return { accessToken, refreshToken };
 };
 

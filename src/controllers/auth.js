@@ -9,9 +9,19 @@ import {
 const authenticate = async (request, response) => {
 	try {
 		const user = userModel(request.body);
-		const token = await authService(user);
-		return response.status(200).json({ login: true, token });
+		const { accessToken, refreshToken } = await authService(user);
+
+		response.cookie('accessToken', accessToken, { maxAge: 60000 });
+		response.cookie('refreshToken', refreshToken, {
+			maxAge: 300000,
+			httpOnly: true,
+			secure: true,
+			sameSite: 'strict',
+		});
+
+		return response.status(200).json({ login: true });
 	} catch (error) {
+		console.log(error);
 		return response
 			.status(error.status || 500)
 			.json({ message: error.message || 'Internal Error' });
