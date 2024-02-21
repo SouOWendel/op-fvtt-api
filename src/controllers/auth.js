@@ -48,7 +48,7 @@ const renewToken = async (request, response) => {
 	const refreshToken = request.cookies.refreshToken;
 	let exist = false;
 	if (!refreshToken) {
-		return res.json({ valid: false, message: 'No Refresh token' });
+		return response.json({ valid: false, message: 'No Refresh token' });
 	} else {
 		if (tokenCheck(refreshToken, 'refresh')) {
 			const accessToken = jwt.sign({ username }, process.env.accessToken, {
