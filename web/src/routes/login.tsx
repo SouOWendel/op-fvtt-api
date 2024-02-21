@@ -11,8 +11,8 @@ export default function Login() {
 	const [login, setLogin] = useState<login>({});
 	const navigate = useNavigate();
 
+	axios.defaults.withCredentials = true;
 	const handleSubmit = (event: FormEvent) => {
-		console.log(login.username, login.password);
 		event.preventDefault();
 		axios
 			.post('http://localhost:3000/login/auth', login)
