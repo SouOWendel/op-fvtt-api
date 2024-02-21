@@ -1,5 +1,35 @@
 # Changelog
 
+## [3.3.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.2.0...v3.3.0) (2024-02-21)
+
+
+### Features
+
+* **app routes:** route to login and id param for update notes was been added ([3461e02](https://github.com/SouOWendel/op-fvtt-api/commit/3461e026c3dbc650685a57b9d5bc543f2a709bbb))
+* **auth controller:** auth verification with access token through cookies and renewToken function ([aee0efa](https://github.com/SouOWendel/op-fvtt-api/commit/aee0efa796f321f71629099d5af67d5d370e600b))
+* **authentication:** now body is used instead of params, create catch in some functions, rename fn ([4d6694e](https://github.com/SouOWendel/op-fvtt-api/commit/4d6694ecdeaf9bb89b668720b4d51773dfb2e403))
+* **axios:** enabled cross-site Access-Control requests ([364c153](https://github.com/SouOWendel/op-fvtt-api/commit/364c1534e37b4f1bd3bd386c90f5d03b32b953b6))
+* button to return to home was added in consult, create and update pages ([6155769](https://github.com/SouOWendel/op-fvtt-api/commit/61557697afb4ce8be9fcfae4d43837e8a5049a06))
+* **check-auth:** check auth has been added to routes create and home ([ad7f5cf](https://github.com/SouOWendel/op-fvtt-api/commit/ad7f5cf4d1f9c7918e4175939835531b4afd4ec6))
+* **consult:** consult action was been added to site ([b1603c7](https://github.com/SouOWendel/op-fvtt-api/commit/b1603c71834e08810e65ab66d4a614545ddd8de0))
+* **home:** button to edit a note and delete notes without reload the page was been added ([72fa9c3](https://github.com/SouOWendel/op-fvtt-api/commit/72fa9c34ba6fc31a4b8ec3ab18375e0cdceb2d45))
+* **login page:** simple login page with authentication has been created ([56f1d60](https://github.com/SouOWendel/op-fvtt-api/commit/56f1d604f76a03443be85ea178e1ff1da65eebe0))
+* **notes route:** middleware for verify the authentication was been added in post, put and delete ([f252c81](https://github.com/SouOWendel/op-fvtt-api/commit/f252c81710f66f00ac003464e06a1c8a9d84bbcf))
+* **router:** route /auth is now Route /login ([9b47e65](https://github.com/SouOWendel/op-fvtt-api/commit/9b47e65938b04cf05eb82782509ecb4bfaf64e94))
+* **token:** refresh Token was been added and generated when login is successful ([22f1a9c](https://github.com/SouOWendel/op-fvtt-api/commit/22f1a9cf0e4e52d2b969c5dde844c1373cdff437))
+* **update page:** a link to update note in consult, TINYMCEEDITOR in update page, data in fields ([7d31c56](https://github.com/SouOWendel/op-fvtt-api/commit/7d31c56d8e01fe011af453ef8ce936fe9dbf5727))
+* **web home route:** sync the check-auth fetch with data retrieved and navigate between the pages ([2986547](https://github.com/SouOWendel/op-fvtt-api/commit/2986547d25babbc11b3ea045f00741f497bb94bf))
+
+
+### Bug Fixes
+
+* **auth route:** fixed a double response ([f1da9a7](https://github.com/SouOWendel/op-fvtt-api/commit/f1da9a755f7ca5a4e9c9cef2419048ee8aead4d7))
+
+
+### Performance Improvements
+
+* **notes schema:** increased the length of content field from 255 (default) to 8000 ([4b33531](https://github.com/SouOWendel/op-fvtt-api/commit/4b335316405ee31f7d08e54867f7bdf39adf1064))
+
 ## [3.2.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.1.0...v3.2.0) (2024-02-18)
 
 
