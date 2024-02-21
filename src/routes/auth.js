@@ -5,8 +5,6 @@ import { authenticate, isAuthenticated } from '../controllers/auth.js';
 const router = express.Router();
 
 router.post('/auth', authenticate);
-router.get('/check-auth', isAuthenticated, (request, response) => {
-	return response.json('Authenticated');
-});
+router.get('/check-auth', isAuthenticated);
 
 export default router;
