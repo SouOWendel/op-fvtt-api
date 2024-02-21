@@ -1,15 +1,16 @@
 // import mongoose from 'mongoose';
 import express from 'express';
 import * as notesController from '../controllers/notes.js';
+import { isAuthenticated } from '../controllers/auth.js';
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
 router.get('/', notesController.findAll);
 router.get('/:id', notesController.consult);
-router.post('/', notesController.create);
-router.put('/:id', notesController.update);
-router.delete('/:id', notesController.remove);
+router.post('/', isAuthenticated, notesController.create);
+router.put('/:id', isAuthenticated, notesController.update);
+router.delete('/:id', isAuthenticated, notesController.remove);
 
 // router.get('/', async (request, response) => {
 // 	const authd = authenticated(request.headers);
