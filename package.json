@@ -4,6 +4,9 @@
 	"description": "api to ordem paranormal for FoundryVTT",
 	"main": "./src/server.js",
 	"type": "module",
+	"engines": {
+		"node": "20"
+	},
 	"scripts": {
 		"start": "node src/index.js",
 		"dev": "nodemon src/server.js",
