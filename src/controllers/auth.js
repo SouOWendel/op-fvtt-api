@@ -5,6 +5,7 @@ import {
 	authenticate as authService,
 	isAuthenticated as tokenCheck,
 } from '../services/auth.js';
+import jwt from 'jsonwebtoken';
 
 const authenticate = async (request, response) => {
 	try {
@@ -30,13 +31,13 @@ const authenticate = async (request, response) => {
 const isAuthenticated = async (request, response, next) => {
 	try {
 		const accessToken = request.cookies.accessToken;
-		if (!accessToken && renewToken(request, response)) next();
-		else {
+		if (!accessToken && (await renewToken(request, response))) {
+			next();
+		} else {
 			const decodedUsername = tokenCheck(accessToken, 'access');
 			request.username = decodedUsername;
 			next();
 		}
-		return response.status(200).json({ login: true });
 	} catch (error) {
 		return response
 			.status(error.status || 500)
@@ -44,16 +45,21 @@ const isAuthenticated = async (request, response, next) => {
 	}
 };
 
-const renewToken = async (request, response) => {
+const renewToken = (request, response) => {
 	const refreshToken = request.cookies.refreshToken;
 	let exist = false;
 	if (!refreshToken) {
 		return response.json({ valid: false, message: 'No Refresh token' });
 	} else {
-		if (tokenCheck(refreshToken, 'refresh')) {
-			const accessToken = jwt.sign({ username }, process.env.accessToken, {
-				expiresIn: '1m',
-			});
+		const decode = tokenCheck(refreshToken, 'refresh');
+		if (decode) {
+			const accessToken = jwt.sign(
+				{ username: decode.username },
+				process.env.accessSECRET,
+				{
+					expiresIn: '3m',
+				},
+			);
 			response.cookie('accessToken', accessToken, { maxAge: 60000 });
 			exist = true;
 		}
