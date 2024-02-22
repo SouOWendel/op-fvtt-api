@@ -6,20 +6,24 @@ import { login } from '../database/entities/auth.js';
 dotenv.config();
 
 const authenticate = async (user) => {
-	// A primeira posição do array é pega, se não existir, não há usuário.
-	const [users] = await login(user);
+	try {
+		// A primeira posição do array é pega, se não existir, não há usuário.
+		const [users] = await login(user);
 
-	if (!users) {
-		throw new Unauthorized('Usuário não autenticado.');
+		if (!users) {
+			throw new Unauthorized('Usuário não autenticado.');
+		}
+
+		return generateToken(user.username);
+	} catch (error) {
+		console.log(error);
 	}
-
-	return generateToken(user.username);
 };
 
 // As outras APIs podem autenticar utilizando o Token ao invés de buscar novamente no banco de dados.
 const generateToken = (username) => {
 	const accessToken = jwt.sign({ username }, process.env.accessSECRET, {
-		expiresIn: '1m',
+		expiresIn: '3m',
 	});
 	const refreshToken = jwt.sign({ username }, process.env.refreshSECRET, {
 		expiresIn: '5m',
@@ -28,14 +32,21 @@ const generateToken = (username) => {
 };
 
 // Lógica para verificação do Token
-const isAuthenticated = (token) => {
+const isAuthenticated = (authorization, type) => {
 	try {
-		const authorization = token.split(' ')[1];
+		if (type !== 'access' && type !== 'refresh') {
+			return console.log('Invalid secret');
+		}
+		const secret = type + 'SECRET';
 		const decoded = jwt.verify(
 			authorization,
-			process.env.SECRET,
+			process.env[secret],
 			(err, decoded) => {
-				if (err) throw new Unauthorized('Invalid token');
+				if (err) {
+					// TODO: CONSOLE.LOG
+					console.log(err);
+					throw new Unauthorized('Invalid access token or refresh token');
+				}
 				return decoded;
 			},
 		);
