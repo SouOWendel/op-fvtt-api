@@ -1,5 +1,7 @@
 import * as userService from '../services/user.js';
-import { isAuthenticated } from '../services/auth.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * Faz a verificação da autenticação e após isso chama as regras
@@ -11,10 +13,11 @@ import { isAuthenticated } from '../services/auth.js';
  */
 const findAll = async (request, response) => {
 	try {
-		isAuthenticated(request.headers);
 		const users = await userService.findAll();
 
-		return response.status(200).json(users);
+		return response
+			.status(200)
+			.json({ message: 'Consulta feita com sucesso!', users });
 	} catch (error) {
 		return response
 			.status(error.status || 500)
@@ -32,12 +35,17 @@ const findAll = async (request, response) => {
  */
 const create = async (request, response) => {
 	try {
-		isAuthenticated(request.headers);
+		if (request.params.secret !== process.env.createUserSecret) {
+			return new Error('Você não tem o token de criação de usuário!');
+		}
 		const user = request.body;
 		await userService.create(user);
 
-		return response.status(200).json({ message: 'Success (user)!' });
+		return response
+			.status(200)
+			.json({ message: 'Usuário criado com sucesso!' });
 	} catch (error) {
+		console.log(error);
 		return response
 			.status(error.status || 500)
 			.json({ message: error.mensage || 'Internal Error' });
@@ -47,8 +55,9 @@ const create = async (request, response) => {
 // TODO: update pendente
 const update = async (request, response) => {
 	try {
-		isAuthenticated(request.headers);
-		return response.status(200).json({ message: 'Success (user)!' });
+		return response
+			.status(200)
+			.json({ message: 'Usuário atualizado com sucesso!' });
 	} catch (error) {
 		return response
 			.status(error.status || 500)
@@ -58,8 +67,9 @@ const update = async (request, response) => {
 // TODO: remove pendente
 const remove = async (request, response) => {
 	try {
-		isAuthenticated(request.headers);
-		return response.status(200).json({ message: 'Success (user)!' });
+		return response
+			.status(200)
+			.json({ message: 'Usuário removido com sucesso!' });
 	} catch (error) {
 		return response
 			.status(error.status || 500)
