@@ -35,7 +35,7 @@ const generateToken = (username) => {
 const isAuthenticated = (authorization, type) => {
 	try {
 		if (type !== 'access' && type !== 'refresh') {
-			return console.log('Invalid secret');
+			return new Error('Invalid type of secret');
 		}
 		const secret = type + 'SECRET';
 		const decoded = jwt.verify(
@@ -43,9 +43,9 @@ const isAuthenticated = (authorization, type) => {
 			process.env[secret],
 			(err, decoded) => {
 				if (err) {
-					// TODO: CONSOLE.LOG
-					console.log(err);
-					throw new Unauthorized('Invalid access token or refresh token');
+					throw new Unauthorized(
+						err.message || 'Invalid access token or refresh token',
+					);
 				}
 				return decoded;
 			},
