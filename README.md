@@ -27,3 +27,7 @@ entender melhor o que há entre os códigos, abaixo estão algumas funcionalidad
 ```
 /notes/{id}
 ```
+
+# Tarefas em andamento
+
+- [] Manipular todos os erros de HTTP corretamente. [Documentação do Express de Error Handling](https://expressjs.com/en/guide/error-handling.html), [Artigo de Ajuda do Dev](https://dev.to/oieduardorabelo/express-entendendo-o-tratamento-de-erros-em-express-fg6)
