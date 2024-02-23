@@ -10,7 +10,7 @@ const findAll = async (user) => {
 
 // Faz uma chamada para entidade de user.js -> cria um novo usuário
 const create = async (user) => {
-	const [userResult] = await userEntity.create(user);
+	const userResult = await userEntity.create(user);
 	console.log(userResult);
 	if (!userResult) throw new Unauthorized('Usuário não autenticado!');
 	return userResult;
