@@ -1,5 +1,36 @@
 # Changelog
 
+## [3.4.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.3.0...v3.4.0) (2024-02-23)
+
+
+### Features
+
+* **auth controller:** change the secret, username and expires time in renewtoken function, add jwt ([fd5381b](https://github.com/SouOWendel/op-fvtt-api/commit/fd5381b1e9ceb0f6059b55c712a1312e2a634327))
+* **auth route:** added a function and response after the authentication check middleware ([cd9c4b6](https://github.com/SouOWendel/op-fvtt-api/commit/cd9c4b6edd722e114fe6dce620b1f308fed667e5))
+* **auth service:** configure secret with respective types ([a6bca76](https://github.com/SouOWendel/op-fvtt-api/commit/a6bca76bc58215e511f796a39b6ff06ad748ac45))
+* **auth service:** now invalid type of secret throw a error and console log has been removed ([68ab582](https://github.com/SouOWendel/op-fvtt-api/commit/68ab582c8c964ccd2dfcc26eee93e41e31f51331))
+* **cors:** `optionSuccessStatus` and `origin` was added on cors configuration ([bbfe780](https://github.com/SouOWendel/op-fvtt-api/commit/bbfe780cb86187a897b3263181581391e8d47af0))
+* **knex:** production vars in knexfile ([48f7415](https://github.com/SouOWendel/op-fvtt-api/commit/48f7415057165fbc034774e4b10225408314a007))
+* **user controller:** a message when status is OK has been added and auth is now middlewares ([9b62359](https://github.com/SouOWendel/op-fvtt-api/commit/9b62359ec62874e4c9fb5b4499915d11c4cc9d96))
+* **user route:** authentication middleware has been added and create user route now need a secret ([ce0f114](https://github.com/SouOWendel/op-fvtt-api/commit/ce0f114d0ff8939ab47d2201ba8b3ecd6cac4962))
+
+
+### Bug Fixes
+
+* **auth controller:** fixed a bug where the `response` variable in renewToken function was `res` ([9a195bd](https://github.com/SouOWendel/op-fvtt-api/commit/9a195bd5be5b22cf20e54548289dd0fb2685c11a))
+* **auth controller:** now the errors are passed to the `next()` function in the auth controller ([661b0b8](https://github.com/SouOWendel/op-fvtt-api/commit/661b0b8cd005ea81f617dedaca7ba633ad218a3c))
+* **user service:** fixed a bug that caused an intermediate value ([0333f07](https://github.com/SouOWendel/op-fvtt-api/commit/0333f07904b8e72b3c7c06767898c897fabf9f87))
+
+
+### Performance Improvements
+
+* remove console log ([81d2822](https://github.com/SouOWendel/op-fvtt-api/commit/81d28229de30066b80938bba72eb3b0cc7197db6))
+
+
+### Reverts
+
+* **knex connection:** revert the config import comment ([70cc28d](https://github.com/SouOWendel/op-fvtt-api/commit/70cc28d73f323672529f72212e7f59ccb0e166ea))
+
 ## [3.3.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.2.0...v3.3.0) (2024-02-21)
 
 
