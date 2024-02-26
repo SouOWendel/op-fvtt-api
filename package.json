@@ -10,7 +10,7 @@
 	"scripts": {
 		"start": "node src/server.js",
 		"dev": "nodemon src/server.js",
-		"migrate": "npm run knex:migrate",
+		"migrate": "knex migrate:latest",
 		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
 		"commit": "git-cz"
 	},
