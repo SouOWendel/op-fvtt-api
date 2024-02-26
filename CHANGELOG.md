@@ -1,5 +1,33 @@
 # Changelog
 
+## [4.0.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.4.0...v4.0.0) (2024-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **database:** The database change changes the way codes and systems work in a data storage context, as Knex usage is now paused.
+
+### Features
+
+* **build:** the location of knexfile.js has been changed and settings were applied ([450588d](https://github.com/SouOWendel/op-fvtt-api/commit/450588defac0c9bfa670590d0de7df75b5968310))
+* **knexfile:** changed the production configuration and use .env for fields ([0c019ed](https://github.com/SouOWendel/op-fvtt-api/commit/0c019ed100f2b043dff40999a0fcead80ffe0ac9))
+
+
+### Bug Fixes
+
+* **build/package:** engine node now is '20.x' ([23ff737](https://github.com/SouOWendel/op-fvtt-api/commit/23ff7371685f9079a6b357f3bd7abca606e6fb07))
+* **package:** fixed the migrate command of knex ([c000a27](https://github.com/SouOWendel/op-fvtt-api/commit/c000a27e5e25709dd10edb258ddf0f9b85228bdd))
+
+
+### Reverts
+
+* **vercel:** revert vercel realocation ([fe77e08](https://github.com/SouOWendel/op-fvtt-api/commit/fe77e08da68481c628cc3cb2aa2d48bc2be073b4))
+
+
+### Code Refactoring
+
+* **database:** changed database from SQLite to MongoDB with Mongoose ([87f2398](https://github.com/SouOWendel/op-fvtt-api/commit/87f2398d4470dfe5681b7e2b363ea8a03ee4b3b7))
+
 ## [3.4.0](https://github.com/SouOWendel/op-fvtt-api/compare/v3.3.0...v3.4.0) (2024-02-23)
 
 
