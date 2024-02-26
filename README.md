@@ -12,7 +12,9 @@ entender melhor o que há entre os códigos, abaixo estão algumas funcionalidad
 - **Refresh Token**: dentro de uma API, é um tipo especial de token que permite a um cliente
   obter um novo token de acesso sem precisar passar pelo processo de autenticação completo
   novamente. Isso é útil para evitar que os usuários precisem se conectar com frequência,
-  especialmente em aplicativos que exigem acesso contínuo a recursos protegidos.
+  especialmente em aplicativos que exigem acesso contínuo a recursos protegidos;
+- **Interface Web**: uma interface para comunicação com a API através de requisições
+  usando o framework Axios combinado ao dinâmico layout que ReactJS e TailwindCSS promovem.
 
 # Documentação da API
 
