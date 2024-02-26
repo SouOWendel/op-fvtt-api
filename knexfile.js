@@ -24,14 +24,9 @@ export default {
 	production: {
 		client: process.env.DATABASE_CLIENT,
 		connection: {
-			database: process.env.DATABASE_NAME,
-			user: process.env.DATABASE_USER_PROD,
-			password: process.env.DATABASE_PASSWORD_PROD,
+			filename: process.env.FILENAME,
 		},
-		pool: {
-			min: Number(process.env.DATABASE_POOL_MIN),
-			max: Number(process.env.DATABASE_POOL_MAX),
-		},
+		useNullAsDefault: true,
 		migrations: {
 			directory: './src/database/migrations',
 		},
